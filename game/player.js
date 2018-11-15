@@ -24,3 +24,11 @@ function Player(game) {
 
 Player.prototype = Object.create(Paddle.prototype);
 Player.prototype.constructor = Player;
+
+Player.prototype.draw = function () {
+    let player = this.player;
+    player.style.left = this.x + 'px';
+    player.style.top = this.y + 'px';
+
+    console.log("player.draw:::");
+}
