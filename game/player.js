@@ -30,3 +30,19 @@ Player.prototype.draw = function () {
     player.style.left = this.x + 'px';
     player.style.top = this.y + 'px';
 }
+
+Player.prototype.update = function () {
+    var self = this;
+    var speed = 10;
+
+    if (self.game.keyPressed.up) {
+        self.yVelocity = -speed;
+    } else if (self.game.keyPressed.down) {
+        self.yVelocity = speed;
+    } else {
+        self.yVelocity = 0; // Stop the player movement
+    }
+
+    Paddle.prototype.update.apply(self, arguments);
+
+}
